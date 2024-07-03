@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// src/components/App.js
+import React from 'react';
+import Toolbar from './Header';
+import Footer from './Footer'; // Import the Footer component
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div>
+            <Toolbar />
+            <h1>Welcome to My App</h1>
+            <p>Welcome to Ontario's premier online learning platform.</p>
+            <Footer /> {/* Include the Footer component */}
+        </div>
+    );
+};
 
 export default App;

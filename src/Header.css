@@ -1,0 +1,68 @@
+/* src/components/Header.css */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #6495ED;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+}
+
+.header-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #777;
+}
+
+.header-button-logo {
+    position: absolute; /* Adjust this value as needed */
+    left: 125px;
+}
+
+.header-button-profile {
+    margin-right: 10px;
+}
+
+.header-button-drop {
+    position: relative; /* Ensure dropdown is positioned relative to this button */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position directly below the header button */
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #ddd;
+}
+
+.header-button-drop:hover .dropdown-content {
+    display: block;
+}
