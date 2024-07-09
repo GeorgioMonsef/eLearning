@@ -1,33 +1,46 @@
+/* src/components/App.css */
+
+/* Reset margin and padding for the entire application */
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
+/* Ensure the logo scales appropriately */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+/* Optional: Animation for the logo */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
+/* Styling for the top header */
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin: 0;
+  padding: 20px;
 }
 
+/* Styling for links */
 .App-link {
   color: #61dafb;
 }
 
+/* Animation keyframes for the logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +48,153 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Main content area */
+.main-content {
+  display: flex;
+  flex: 1;
+  margin-top: 20px; /* Adjust top margin to bring content closer to top toolbar */
+}
+
+/* Sidebar styling */
+.side-bar {
+  width: 200px;
+  height: calc(100vh - 60px); /* Adjust sidebar height */
+  background-color: white;
+  padding-top: 60px; /* Adjust top padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Content area styling */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 200px; /* Adjust margin for sidebar */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the top */
+  text-align: center;
+}
+
+/* Welcome message styling */
+.huge-welcome {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Adjust bottom margin for space */
+}
+
+/* Subtext styling */
+.subtext {
+  font-size: 20px;
+  margin-top: 5px; /* Adjust top margin */
+  color: black;
+}
+
+/* Question form styling */
+.question-form {
+  margin-top: 20px; /* Space between subtext and form */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Question label styling */
+.question-label {
+  font-size: 18px;
+}
+
+/* Question input styling */
+.question-input {
+  width: 400%;
+  height: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 5px solid #89CFF0;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Placeholder styling for the input */
+.question-input::placeholder {
+  font-size: 18px;
+  color: #888;
+}
+
+/* Submit button styling */
+.question-submit {
+  padding: 10px 20px;
+  background-color: #89CFF0;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for submit button */
+.question-submit:hover {
+  background-color: #70BEE0;
+}
+
+.ourMission {
+  font-size: 18px; /* Moderate font size */
+  margin-top: 20px; /* Adjust margin as needed */
+  text-align: center; /* Center align the text */
+}
+
+/* Container for all dropdown groups */
+.dropdown-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  width: 100%;
+}
+
+/* Dropdown group styling */
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align buttons to the left */
+  margin-bottom: 10px; /* Adjust spacing between dropdown groups */
+  width: calc(25% - 10px); /* Adjust width of each dropdown group */
+}
+
+/* Dropdown toggle button styling */
+.dropdown-toggle {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #89CFF0;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Active state for dropdown toggle */
+.dropdown-toggle.active {
+  background-color: #70BEE0;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.dropdown-toggle.active + .dropdown-content {
+  max-height: 200px; /* Adjust as needed */
+}
+
+/* Dropdown option styling */
+.dropdown-option {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: black;
+  background-color: #89CFF0; /* Blue background color */
+  margin-top: 5px; /* Adjust margin between options */
+  border-radius: 5px;
 }

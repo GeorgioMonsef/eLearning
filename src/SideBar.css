@@ -1,0 +1,28 @@
+/* src/components/SideBar.css */
+.side-bar {
+    width: 100px;
+    height: calc(100vh - 60px); /* Adjust height to account for the top toolbar */
+    position: fixed;
+    top: 60px; /* Adjust based on the height of your top toolbar */
+    left: 0;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.side-button {
+    color: black;
+    background-color: #FFFFFF;
+    border: none;
+    padding: 30px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.side-button:hover {
+    background-color: #89CFF0;
+}
