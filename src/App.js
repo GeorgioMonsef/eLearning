@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Toolbar from './Header';
-import Footer from './Footer';
-import SideBar from './SideBar';
-import About from './About'; // Assuming this is your About component
-import './App.css';
+import Footer from './Footer'; // Import the Footer component
+import SideBar from './SideBar'; // Import the SideBar component
+import About from './About'; // Import the About component
+import SignUp from './SignUp'; // Import the Signup component
+import './App.css'; // Import the CSS file
 
 const App = () => {
     const [activeSection, setActiveSection] = useState(null);
@@ -22,6 +23,7 @@ const App = () => {
                     <div className="content">
                         <Routes>
                             <Route path="/about" element={<About />} />
+                            <Route path="/signUp" element={<SignUp />} />
                             <Route path="/" element={
                                 <div>
                                     <p className="huge-welcome">Welcome to Ontario's premier online learning platform!</p>
@@ -92,7 +94,7 @@ const App = () => {
                         </Routes>
                     </div>
                 </div>
-                <Footer />
+                <Footer /> {/* Include the Footer component */}
             </div>
         </Router>
     );
