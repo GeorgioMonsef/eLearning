@@ -1,5 +1,7 @@
+// src/components/Toolbar.js
+
 import React, { useState } from 'react';
-import './Header.css';
+import './Header.css'; // Make sure this matches your CSS file name
 import logoImg from './logo.png'; // Import your PNG logo
 import { Link } from 'react-router-dom';
 
@@ -31,6 +33,7 @@ const Toolbar = () => {
                     </div>
                 )}
             </div>
+            <p className="title">ScholarBee</p>
         </div>
     );
 };

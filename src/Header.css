@@ -1,4 +1,18 @@
 /* src/components/Header.css */
+
+/* src/components/Header.css */
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: purple;
+    flex: 1; /* Ensures the title takes up available space */
+    margin: 0; /* Reset any default margin */
+}
+
+
+
 .toolbar {
     width: 100%;
     height: 80px; /* Set a fixed height for the top toolbar */

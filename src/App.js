@@ -7,6 +7,7 @@ import About from './About'; // Import the About component
 import SignUp from './SignUp'; // Import the Signup component
 import './App.css'; // Import the CSS file
 
+
 const App = () => {
     const [activeSection, setActiveSection] = useState(null);
 
@@ -40,19 +41,19 @@ const App = () => {
                                     </form>
                                     <p className="ourMission">Here at QnA'd, we dedicate ourselves into answering any questions privately to do with any of the following subjects:</p>
                                     <div className="additional-info">
-                                        <div className="dropdown-group">
+                                        <div className="mathematics">
                                             <button className={`dropdown-toggle ${activeSection === 'mathematics' ? 'active' : ''}`} onClick={() => toggleSection('mathematics')}>
                                                 Mathematics
                                             </button>
                                             {activeSection === 'mathematics' && (
-                                                <div className="dropdown-content">
+                                                <div className="math">
                                                     <button className="dropdown-option">Option 1</button>
                                                     <button className="dropdown-option">Option 2</button>
                                                     <button className="dropdown-option">Option 3</button>
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="dropdown-group">
+                                        <div className="physics">
                                             <button className={`dropdown-toggle ${activeSection === 'physics' ? 'active' : ''}`} onClick={() => toggleSection('physics')}>
                                                 Physics
                                             </button>
@@ -64,7 +65,7 @@ const App = () => {
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="dropdown-group">
+                                        <div className="chemistry">
                                             <button className={`dropdown-toggle ${activeSection === 'chemistry' ? 'active' : ''}`} onClick={() => toggleSection('chemistry')}>
                                                 Chemistry
                                             </button>
@@ -76,7 +77,7 @@ const App = () => {
                                                 </div>
                                             )}
                                         </div>
-                                        <div className="dropdown-group">
+                                        <div className="biology">
                                             <button className={`dropdown-toggle ${activeSection === 'biology' ? 'active' : ''}`} onClick={() => toggleSection('biology')}>
                                                 Biology
                                             </button>
