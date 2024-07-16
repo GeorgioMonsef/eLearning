@@ -5,7 +5,6 @@ import Footer from './Footer';
 function Profile() {
     return (
         <div className="relative bg-blue-500 min-h-screen">
-            <Header />
             <div className="flex items-start p-6">
                 {/* Profile Picture */}
                 <div className="flex-shrink-0">

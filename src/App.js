@@ -7,10 +7,14 @@ import './App.css';
 function App() {
     const [showSignup, setShowSignup] = useState(false);
     const [showProfile, setShowProfile] = useState(false);
+    const [showLearnMore, setShowLearnMore] = useState(false);
+
 
     const handleGetStartedClick = () => {
         setShowSignup(true);
         setShowProfile(false);
+        setShowProfile(false);
+
     };
 
     const handleProfileClick = () => {
@@ -79,6 +83,46 @@ function App() {
 }
 
 function Signup({ onSignup }) {
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent default form submission
+        onSignup(); // Call the provided handler to show the profile
+    };
+
+    return (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-0 bg-blue-500 transition-opacity duration-700 ease-in-out">
+            <div className="bg-white rounded-lg p-8 shadow-xl w-full max-w-lg animate-fade-in">
+                <h2 className="text-3xl font-bold text-gray-800 mb-8">Sign Up</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="name">Name</label>
+                        <input type="text" id="name" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="username">Username</label>
+                        <input type="text" id="username" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="email">Email</label>
+                        <input type="email" id="email" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="dob">Date of Birth</label>
+                        <input type="date" id="dob" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="password">Password</label>
+                        <input type="password" id="password" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
+                    </div>
+                    <div className="flex justify-end">
+                        <button type="submit" className="px-6 py-3 bg-teal-600 text-white rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
+}
+
+function GetStarted({ onSignup }) {
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent default form submission
         onSignup(); // Call the provided handler to show the profile
