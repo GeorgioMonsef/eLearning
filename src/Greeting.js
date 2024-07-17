@@ -88,7 +88,7 @@ function Greeting() {
                         <div className="bg-white rounded-lg p-8 shadow-xl w-full max-w-lg animate-fade-in">
                             <h2 className="text-3xl font-bold text-gray-800 mb-8">Learn More</h2>
                             <p className="text-lg text-gray-700">
-                                Here is some placeholder text to provide more information about our services and features. We aim to enhance your learning experience through a variety of educational tools and resources tailored just for you.
+                                Here is some placeholder text! It is here to provide more information about our services and features. We aim to enhance your learning experience through a variety of educational tools and resources tailored just for you.
                             </p>
                             <div className="mt-4 flex justify-end">
                                 <button onClick={() => setShowLearnMore(false)} className="px-6 py-3 bg-teal-600 text-white rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Close</button>
