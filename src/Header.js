@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Header() {
     const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
@@ -66,13 +67,14 @@ function Header() {
                                         Math
                                     </a>
                                     {Array.from({ length: 12 }, (_, index) => (
-                                        <button
+                                        <Link
                                             key={index + 1}
+                                            to={`/Math${index + 1}`} // Link to respective Math page
                                             className="bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-gray-900 py-1.5 px-3 rounded-md text-sm focus:outline-none block w-full text-left"
                                             style={{ maxWidth: '100%' }}
                                         >
                                             Grade {index + 1}
-                                        </button>
+                                        </Link>
                                     ))}
                                 </div>
                                 <div>
@@ -82,24 +84,24 @@ function Header() {
                                     >
                                         French
                                     </a>
-                                    <a
-                                        href="#"
-                                        className="text-gray-600 hover:text-gray-900 block"
+                                    <Link
+                                        to="/French1" // Link to French1 page
+                                        className="bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-gray-900 py-1.5 px-3 rounded-md text-sm focus:outline-none block w-full text-left"
                                     >
                                         Option 1
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="text-gray-600 hover:text-gray-900 block"
+                                    </Link>
+                                    <Link
+                                        to="/French2" // Link to French2 page
+                                        className="bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-gray-900 py-1.5 px-3 rounded-md text-sm focus:outline-none block w-full text-left"
                                     >
                                         Option 2
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="text-gray-600 hover:text-gray-900 block"
+                                    </Link>
+                                    <Link
+                                        to="/French3" // Link to French3 page
+                                        className="bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-gray-900 py-1.5 px-3 rounded-md text-sm focus:outline-none block w-full text-left"
                                     >
                                         Option 3
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
