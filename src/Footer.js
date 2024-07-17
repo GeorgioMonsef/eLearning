@@ -74,7 +74,7 @@ function Footer() {
                                                                                    target="_blank"
                                                                                    rel="noopener noreferrer"></a>
                             <a href="https://www.google.com"
-                               className="text-blueGray-500 hover:text-blueGray-800"> Levant Solutions Inc.</a>.
+                               className="text-blueGray-500 hover:text-blueGray-800"> Levant Solutions Inc</a>.
                         </div>
                     </div>
                 </div>
