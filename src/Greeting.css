@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Example of normalizing focus styles */
+:focus {
+    outline: none; /* Remove default focus outline */
+    /* Add your custom focus styles */
+}
+

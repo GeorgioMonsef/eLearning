@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Example of normalizing focus styles */
+:focus {
+    outline: none; /* Remove default focus outline */
+    /* Add your custom focus styles */
+}
+
+@keyframes SubjectDropdown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes GradeDropDown {
+    from {
+        opacity: 0;
+        width: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        width: 200px;
+        transform: translateX(0);
+    }
+}
+
+.dropdown-animation-TopToDown {
+    animation: SubjectDropdown 0.5s forwards;
+}
+
+.dropdown-animation-LeftToRight {
+    animation: GradeDropDown 0.5s forwards;
+}
