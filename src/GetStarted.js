@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function GetStarted() {
+    const [startDate, setStartDate] = useState(null);
+
     return (
         <div className="bg-blue-500 h-screen flex justify-center items-center">
             <div className="max-w-md w-full p-6 bg-gray-100 shadow-lg rounded-lg">
-                <h2 className="text-3xl font-semibold text-center mb-6">Sign Upppppppp</h2>
+                <h2 className="text-3xl font-semibold text-center mb-6">Sign Up</h2>
                 <form className="space-y-4">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -38,13 +42,12 @@ function GetStarted() {
                     </div>
                     <div>
                         <label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</label>
-                        <input
-                            type="text"
-                            id="dob"
-                            name="dob"
-                            pattern="\d{2}/\d{2}/\d{4}"
+                        <DatePicker
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            dateFormat="MM/dd/yyyy"
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            placeholder="mm/dd/yyyy"
+                            placeholderText="Select your date of birth"
                         />
                     </div>
                     <div>

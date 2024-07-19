@@ -1,9 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* Example of normalizing focus styles */
-:focus {
-    outline: none; /* Remove default focus outline */
-    /* Add your custom focus styles */
+/* Ensure each letter is hidden initially and then appears one by one */
+.typewriter-letter {
+    display: inline-block;
+    opacity: 0;
+    animation: typewriterLetter 0.1s steps(1) forwards;
 }
 
+/* Animate each letter with a delay */
+.typewriter-line1 .typewriter-letter {
+    animation-delay: calc(0.1s * var(--i)); /* Adjust delay based on letter index */
+}
+
+.typewriter-line2 .typewriter-letter {
+    animation-delay: calc(0.1s * (var(--i) + 30)); /* Start after line 1 */
+}
+
+@keyframes typewriterLetter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Additional custom styles for line and text */
+.typewriter-line {
+    display: block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriterLine 2s steps(50) forwards;
+}
+
+@keyframes typewriterLine {
+    from { width: 0; }
+    to { width: 100%; }
+}
