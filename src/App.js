@@ -6,6 +6,8 @@ import Footer from './Footer';
 import Greeting from './Greeting';
 import GetStarted from './GetStarted';
 import AboutUs from './AboutUs';
+import Profile from './ProfilePage'
+import AccountSettings from './AccountSettings';
 import Math1 from './Math1';
 import Math2 from './Math2';
 import Math3 from './Math3';
@@ -27,8 +29,11 @@ import './App.css';
 function Main() {
     return (
         <Routes>
+
             <Route path="/" element={<Greeting />} />
             <Route path="/GetStarted" element={<GetStarted />} />
+            <Route path="/Profile" element={<Profile />} />
+            <Route path="/AccountSettings" element={<AccountSettings />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Math1" element={<Math1 />} />
             <Route path="/Math2" element={<Math2 />} />

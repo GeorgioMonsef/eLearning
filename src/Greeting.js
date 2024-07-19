@@ -2,30 +2,21 @@ import React, { useState } from 'react';
 
 function Greeting() {
     const [showSignup, setShowSignup] = useState(false);
-    const [showProfile, setShowProfile] = useState(false);
     const [showLearnMore, setShowLearnMore] = useState(false);
 
     const handleGetStartedClick = () => {
         setShowSignup(true);
-        setShowProfile(false);
         setShowLearnMore(false);
     };
 
-    const handleProfileClick = () => {
-        setShowProfile(true);
-        setShowSignup(false);
-        setShowLearnMore(false);
-    };
 
     const handleLearnMoreClick = () => {
         setShowLearnMore(true);
         setShowSignup(false);
-        setShowProfile(false);
     };
 
     const handleSignup = () => {
         setShowSignup(false); // Hide signup
-        setShowProfile(true); // Show profile
     };
 
     return (
@@ -63,7 +54,6 @@ function Greeting() {
                     <p className="mt-6 text-lg leading-8 text-gray-300">We believe in the continuing of education even after school hours. Ask anything, get an answer within one single hour, or money back guaranteed.</p>
                     <div className="mt-10 flex items-center gap-x-6">
                         <button onClick={handleGetStartedClick} className="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-red-600">Get started</button>
-                        <button onClick={handleProfileClick} className="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-red-600">View Profile</button>
                         <button onClick={handleLearnMoreClick} className="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-red-600">Learn more</button>
                     </div>
                 </div>
