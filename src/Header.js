@@ -15,6 +15,7 @@ function Header() {
     const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
     const [selectedSubject, setSelectedSubject] = useState(null);
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
 
     const toggleSubjectDropdown = () => {
         setIsSubjectDropdownOpen(!isSubjectDropdownOpen);
@@ -34,9 +35,12 @@ function Header() {
         setSelectedSubject(null); // Reset selected subject when mouse leaves
     };
 
-
     const handleSubjectClick = (subject) => {
         setSelectedSubject(subject);
+    };
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
     };
 
     return (
@@ -61,22 +65,22 @@ function Header() {
                             <path d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
-                        <Link to="/" className="text-2xl font-semibold flex items-center">
-                            <img src={studybee} alt="Study Bee" className="ml-4 h-8 w-auto"/>
-                            <span>ScholarBee</span>
-                        </Link>
+                    <Link to="/" className="text-2xl font-semibold flex items-center">
+                        <img src={studybee} alt="Study Bee" className="ml-4 h-8 w-auto" />
+                        <span>ScholarBee</span>
+                    </Link>
                     {isSubjectDropdownOpen && (
                         <div
                             className="absolute left-10 top-5 mt-2 bg-white border border-gray-200 shadow-lg rounded-md z-10 p-1 flex dropdown-animation-TopToDown"
                             onMouseEnter={handleMouseEnterSubject}
                             onMouseLeave={handleMouseLeaveSubject}
-                            style={{boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.15)'}} // Invisible border effect
+                            style={{ boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.15)' }} // Invisible border effect
                         >
                             <div className="p-4">
                                 <ul className="list-none">
                                     {subjects.map((subject) => (
-                                        <div className="w-full border-b border-gray-500 last:border-b-0 box-border">
-                                            <li key={subject.name} className="py-1">
+                                        <div key={subject.name} className="w-full border-b border-gray-500 last:border-b-0 box-border">
+                                            <li className="py-1">
                                                 <button
                                                     onClick={() => handleSubjectClick(subject)}
                                                     className={`text-blue-500 hover:text-gray-900 block w-48 text-left ${selectedSubject === subject ? 'font-bold' : ''}`}
@@ -106,6 +110,15 @@ function Header() {
                             )}
                         </div>
                     )}
+                </div>
+                <div className="flex items-center flex-grow justify-center ml-96">
+                    <input
+                        type="text"
+                        placeholder="See if someone has asked your question already!"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        className="bg-gray-100 border border-gray-300 rounded-md py-2 px-4 text-sm w-96 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
                 </div>
                 <div className="flex items-center absolute right-10 h-full">
                     <div className="relative flex items-center">
@@ -168,10 +181,8 @@ function Header() {
                             </div>
                         )}
                     </div>
-
                 </div>
             </div>
-            
         </header>
     );
 }
