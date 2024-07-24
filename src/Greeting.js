@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Greeting.css';
 
 function Greeting() {
     const [showSignup, setShowSignup] = useState(false);
@@ -65,7 +66,7 @@ function Greeting() {
                     </div>
                     <h1 className="mt-0 text-4xl font-bold tracking-tight text-white sm:text-6xl">The answer to any
                         question, anonymously</h1>
-                    <h1 className="relative w-max font-mono before:absolute before:inset-0 before:bg-blue-500 text-2xl before:animate-typewriter">
+                    <h1 className="relative w-max font-mono before:absolute before:inset-0 before:bg-blue-500 text-2xl before:animate-typewriter slide-in-left">
                         Here we believe education continues
                         <br/>
                         <span className="text-highlight">past class hours, Ask anything, get an answer </span>
@@ -126,30 +127,20 @@ function Greeting() {
             )}
 
             <div className="flex gap-8 flex-wrap justify-center bg-blue-500 h-screen py-10">
-                <div
-                    className="transform  rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-white shadow-xl transition duration-300 hover:scale-105">
-                    <div className="flex h-full justify-center items-center">
-                        <span className="font-bold text-gray-500">Our mission is to provide 24/7 support to all students! We know the stress of cramming last minute and not having access to a tutor late nights.</span>
+                <div className="flex flex-col items-start bg-blue-500 h-screen py-12 px-8 space-y-8">
+                    <div className="text-white text-2xl font-semibold leading-relaxed slide-in-left">
+                        - Our mission is to provide 24/7 support to all students! We understand the stress of cramming
+                        last-minute and not having access to a tutor late at night.
+                    </div>
+                    <div className="text-white text-2xl font-semibold leading-relaxed slide-in-left">
+                        - Get an answer back within one hour or your money back, guaranteed.
+                    </div>
+                    <div className="text-white text-2xl font-semibold leading-relaxed slide-in-left">
+                        - Our services are designed to fit your busy schedule and provide immediate support.
                     </div>
                 </div>
 
-                <div
-                    className="transform  rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-white shadow-xl transition duration-300 hover:rotate-180">
-                    <div className="flex h-full justify-center items-center">
-                <span
-                    className="font-bold text-green-600"
-                    style={{transform: 'rotate(180deg)', display: 'inline-block'}}
-                >
-                    Get an answer back within one single hour or money back guaranteed.
-                </span></div>
-                </div>
 
-                <div
-                    className="transform rounded-xl h-40 w-40 sm:h-64 sm:w-64 bg-white shadow-xl transition duration-300 hover:translate-x-4">
-                    <div className="flex h-full justify-center items-center">
-                        <span className="font-bold text-amber-500">Our sub</span>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -169,7 +160,7 @@ function Signup({onSignup}) {
                 <h2 className="text-3xl font-bold text-gray-800 mb-1">Sign Up</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700" htmlFor="name">Name</label>
+                    <label className="block text-sm font-medium text-gray-700" htmlFor="name">Name</label>
                         <input type="text" id="name"
                                className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
                     </div>
