@@ -4,16 +4,24 @@ import './Greeting.css';
 function Greeting() {
     const [showSignup, setShowSignup] = useState(false);
     const [showLearnMore, setShowLearnMore] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleGetStartedClick = () => {
-        setShowSignup(true);
-        setShowLearnMore(false);
+        setLoading(true); // Show loading spinner
+        setTimeout(() => { // Simulate loading
+            setLoading(false);
+            setShowSignup(true);
+            setShowLearnMore(false);
+        }, 1000);
     };
 
-
     const handleLearnMoreClick = () => {
-        setShowLearnMore(true);
-        setShowSignup(false);
+        setLoading(true); // Show loading spinner
+        setTimeout(() => { // Simulate loading
+            setLoading(false);
+            setShowLearnMore(true);
+            setShowSignup(false);
+        }, 1000);
     };
 
     const handleSignup = () => {
@@ -41,15 +49,15 @@ function Greeting() {
 
             {/* Main Content */}
             <div
-                className={`absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]`}
-                aria-hidden="true">
+                className={`mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40 transition ${showSignup || showLearnMore ? 'blur-sm' : ''}`}
+                aria-live="polite">
                 <div
-                    className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#216918] to-[#30303102] opacity-20"
-                    style={{clipPath: 'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)'}}></div>
-            </div>
+                    className="relative isolate overflow-hidden bg-blue-500">
+                    <div
+                        className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#216918] to-[#30303102] opacity-20"
+                        style={{clipPath: 'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)'}}></div>
+                </div>
 
-            <div
-                className={`mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40 transition ${showSignup || showLearnMore ? 'blur-sm' : ''}`}>
                 <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
                     <div className="mt-24 sm:mt-32 lg:mt-16">
                         <a href="#" className="inline-flex space-x-6">
@@ -102,8 +110,14 @@ function Greeting() {
                     </div>
                 </div>
 
-
             </div>
+
+            {loading && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <div
+                        className="w-16 h-16 border-4 border-t-4 border-white border-opacity-50 rounded-full animate-spin"></div>
+                </div>
+            )}
 
             {showSignup && <Signup onSignup={handleSignup}/>}
 
@@ -124,10 +138,12 @@ function Greeting() {
                         </div>
                     </div>
                 </div>
+
+
             )}
 
-            <div className="flex gap-8 flex-wrap justify-center bg-blue-500 h-screen py-10">
-                <div className="flex flex-col items-start bg-blue-500 h-screen py-12 px-8 space-y-8">
+            <div className="ml-80 max-w-2xl flex-shrink-0 lg:max-w-xl lg:pt-8">
+                <div className="flex gap-8 flex-wrap justify-center bg-blue-500 py-10">
                     <div className="text-white text-2xl font-semibold leading-relaxed slide-in-left">
                         - Our mission is to provide 24/7 support to all students! We understand the stress of cramming
                         last-minute and not having access to a tutor late at night.
@@ -143,7 +159,6 @@ function Greeting() {
 
             </div>
         </div>
-
     );
 }
 
@@ -160,28 +175,20 @@ function Signup({onSignup}) {
                 <h2 className="text-3xl font-bold text-gray-800 mb-1">Sign Up</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700" htmlFor="name">Name</label>
+                        <label className="block text-sm font-medium text-gray-700" htmlFor="name">Name</label>
                         <input type="text" id="name"
                                className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
                     </div>
-                    <div className="mb-1">
-                        <label className="block text-sm font-medium text-gray-700" htmlFor="username">Username</label>
-                        <input type="text" id="username" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
-                    </div>
-                    <div className="mb-1">
+                    {/* Add more fields as necessary */}
+                    <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700" htmlFor="email">Email</label>
-                        <input type="email" id="email" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
-                    </div>
-                    <div className="mb-1">
-                        <label className="block text-sm font-medium text-gray-700" htmlFor="dob">Date of Birth</label>
-                        <input type="date" id="dob" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
-                    </div>
-                    <div className="mb-1">
-                        <label className="block text-sm font-medium text-gray-700" htmlFor="password">Password</label>
-                        <input type="password" id="password" className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
+                        <input type="email" id="email"
+                               className="mt-1 block w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" />
                     </div>
                     <div className="flex justify-end">
-                        <button type="submit" className="px-6 py-3 bg-teal-600 text-white rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">OK</button>
+                        <button type="submit"
+                                className="px-6 py-3 bg-teal-600 text-white rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">OK
+                        </button>
                     </div>
                 </form>
             </div>
