@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Link } from 'react-router-dom';
 
 function GetStarted() {
     const [startDate, setStartDate] = useState(null);
@@ -61,12 +62,12 @@ function GetStarted() {
                         />
                     </div>
                     <div className="flex justify-end">
-                        <button
-                            type="submit"
+                        <Link
+                            to="/Payment"
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none"
                         >
-                            Sign Up
-                        </button>
+                            Set up Payment
+                        </Link>
                     </div>
                 </form>
             </div>

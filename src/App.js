@@ -8,6 +8,8 @@ import GetStarted from './GetStarted';
 import AboutUs from './AboutUs';
 import Profile from './ProfilePage'
 import AccountSettings from './AccountSettings';
+import LogIn from './LogIn';
+import Payment from './Payment';
 import Math1 from './Math1';
 import Math2 from './Math2';
 import Math3 from './Math3';
@@ -35,6 +37,8 @@ function Main() {
             <Route path="/Profile" element={<Profile />} />
             <Route path="/AccountSettings" element={<AccountSettings />} />
             <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/Login" element={<LogIn />} />
+            <Route path="/Payment" element={<Payment />} />
             <Route path="/Math1" element={<Math1 />} />
             <Route path="/Math2" element={<Math2 />} />
             <Route path="/Math3" element={<Math3 />} />

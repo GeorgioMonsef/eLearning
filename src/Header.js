@@ -129,6 +129,13 @@ function Header() {
                             Get Started
                         </Link>
 
+                        <Link
+                            to="/Login"
+                            className="ml-4 bg-gray-200 hover:bg-gray-300 text-gray-600 px-4 py-2 rounded-md focus:outline-none"
+                        >
+                            Log In
+                        </Link>
+
                         <button
                             className="ml-4 text-gray-600 focus:outline-none"
                             onClick={toggleProfileDropdown}
