@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Greeting.css';
 
 function Greeting() {
@@ -107,13 +108,17 @@ function Greeting() {
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
                     <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
                         <div className="bg-white rounded-lg p-8 shadow-xl">
-                            <h2 className="text-3xl font-bold text-gray-800">Ask any question, response by the hour!</h2>
+                            <h2 className="text-3xl font-bold text-gray-800">Ask any question, response by the
+                                hour!</h2>
                             <textarea
                                 className="mt-4 block w-full max-w-xl h-64 px-4 py-4 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"></textarea>
                             <div className="mt-4 flex justify-end">
-                                <button
-                                    className="px-6 py-3 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Submit
-                                </button>
+                                <Link
+                                    to="/AskQuestion"
+                                    className="px-6 py-3 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                                >
+                                    Submit
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -122,7 +127,8 @@ function Greeting() {
 
             {loading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="w-16 h-16 border-4 border-t-4 border-white border-opacity-50 rounded-full animate-spin"></div>
+                    <div
+                        className="w-16 h-16 border-4 border-t-4 border-white border-opacity-50 rounded-full animate-spin"></div>
                 </div>
             )}
 

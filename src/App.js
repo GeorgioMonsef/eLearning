@@ -10,6 +10,8 @@ import Profile from './ProfilePage'
 import AccountSettings from './AccountSettings';
 import LogIn from './LogIn';
 import Payment from './Payment';
+import AskQuestion from './AskQuestion'
+import PreviewQuestion from './PreviewQuestion'
 import Math1 from './Math1';
 import Math2 from './Math2';
 import Math3 from './Math3';
@@ -39,6 +41,8 @@ function Main() {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Login" element={<LogIn />} />
             <Route path="/Payment" element={<Payment />} />
+            <Route path="/AskQuestion" element={<AskQuestion />} />
+            <Route path="/PreviewQuestion" element={<PreviewQuestion />} />
             <Route path="/Math1" element={<Math1 />} />
             <Route path="/Math2" element={<Math2 />} />
             <Route path="/Math3" element={<Math3 />} />
