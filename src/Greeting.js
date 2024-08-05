@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Greeting.css';
+import CardGrid from './CardGrid';
 
 function Greeting() {
     const [showSignup, setShowSignup] = useState(false);
@@ -31,6 +32,7 @@ function Greeting() {
 
     return (
         <div className="relative isolate overflow-hidden bg-blue-500">
+
             {/* SVG Background */}
             <svg
                 className="absolute inset-0 -z-10 h-full w-full stroke-red-100/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -39,6 +41,7 @@ function Greeting() {
             </svg>
 
             {/* Main Content */}
+
             <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40 transition"
                  aria-live="polite">
                 {/* Existing content above */}
@@ -47,6 +50,7 @@ function Greeting() {
                     <div className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#216918] to-[#30303102] opacity-20"
                          style={{clipPath: 'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)'}}></div>
                 </div>
+
 
                 <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
                     <div className="mt-24 sm:mt-32 lg:mt-16">
@@ -75,34 +79,7 @@ function Greeting() {
                         </button>
                     </div>
 
-                    <div className="mx-auto max-w-7xl flex-shrink-0 lg:mx-0 lg:max-w-none lg:pt-8">
-                        <div className="mt-24 sm:mt-32 lg:mt-16 lg:flex lg:items-start lg:gap-10">
-                            <div className="lg:max-w-2xl">
-                                <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
-                                <p className="text-lg text-gray-200">
-                                    Our mission is to provide 24/7 support to all students! We understand the stress of
-                                    cramming last-minute and not having access to a tutor late at night.
-                                </p>
-                                <p className="text-lg text-gray-200 mt-4">
-                                    We started this platform to ensure that every student has access to the help they
-                                    need, no matter the time of day. Education shouldn't be limited by a schedule; it should be
-                                    available whenever you need it.
-                                </p>
-                                <p className="text-lg text-gray-200 mt-4">
-                                    Our service is useful because it fits into your busy schedule, providing immediate
-                                    support. Get answers within an hour or your money back—guaranteed.
-                                </p>
-                                <p className="text-lg text-gray-200 mt-4">
-                                    <a href="https://levant-solutions.com" className="text-teal-300 hover:underline">
-                                        Learn more about our parent company, Levant Solutions Inc.
-                                    </a>
-                                </p>
-                            </div>
-                            <div className="flex-grow">
-                                {/* Additional content (e.g., images, other sections) can go here */}
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
@@ -124,6 +101,8 @@ function Greeting() {
                     </div>
                 </div>
             </div>
+            <CardGrid />
+
 
             {loading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -149,8 +128,10 @@ function Greeting() {
                                     className="px-6 py-3 bg-teal-600 text-white rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Close
                             </button>
                         </div>
+
                     </div>
                 </div>
+
             )}
         </div>
     );
