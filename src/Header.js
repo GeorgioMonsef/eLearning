@@ -15,6 +15,7 @@ function Header() {
     const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
     const [selectedSubject, setSelectedSubject] = useState(null);
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+    const [isLoginDropdownOpen, setIsLoginDropdownOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
     const toggleSubjectDropdown = () => {
@@ -24,6 +25,10 @@ function Header() {
 
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    };
+
+    const toggleLoginDropdown = () => {
+        setIsLoginDropdownOpen(!isLoginDropdownOpen);
     };
 
     const handleMouseEnterSubject = () => {
@@ -129,12 +134,38 @@ function Header() {
                             Get Started
                         </Link>
 
-                        <Link
-                            to="/Login"
-                            className="ml-4 bg-gray-200 hover:bg-gray-300 text-gray-600 px-4 py-2 rounded-md focus:outline-none"
+                        <button
+                            className="ml-4 bg-gray-200 hover:bg-gray-300 text-gray-600 px-4 py-2 rounded-md focus:outline-none relative"
+                            onClick={toggleLoginDropdown}
                         >
                             Log In
-                        </Link>
+                        </button>
+
+                        {isLoginDropdownOpen && (
+                            <div
+                                className="absolute right-0 top-12 mt-1 w-40 bg-white border border-gray-200 shadow-lg rounded-md z-10"
+                                style={{ boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.15)' }} // Invisible border effect
+                            >
+                                <Link
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
+                                    to="/Login"
+                                    onClick={() => {
+                                        setIsLoginDropdownOpen(false); // Close dropdown on click
+                                    }}
+                                >
+                                    Student Login
+                                </Link>
+                                <Link
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
+                                    to="/TeacherScreen"
+                                    onClick={() => {
+                                        setIsLoginDropdownOpen(false); // Close dropdown on click
+                                    }}
+                                >
+                                    Teacher Login
+                                </Link>
+                            </div>
+                        )}
 
                         <button
                             className="ml-4 text-gray-600 focus:outline-none"
@@ -170,7 +201,7 @@ function Header() {
                                 </Link>
                                 <Link
                                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
-                                    to="AccountSettings"
+                                    to="/AccountSettings"
                                     onClick={() => {
                                         setIsProfileDropdownOpen(false); // Close dropdown on click
                                     }}

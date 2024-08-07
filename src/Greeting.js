@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Signup from './Signup';
 import './Greeting.css';
 
 function Greeting() {
     const [showSignup, setShowSignup] = useState(false);
     const [showLearnMore, setShowLearnMore] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [questionText, setQuestionText] = useState('');
+    const navigate = useNavigate();
 
     const handleGetStartedClick = () => {
-        setLoading(true); // Show loading spinner
-        setTimeout(() => { // Simulate loading
+        setLoading(true);
+        setTimeout(() => {
             setLoading(false);
             setShowSignup(true);
             setShowLearnMore(false);
@@ -17,8 +20,8 @@ function Greeting() {
     };
 
     const handleLearnMoreClick = () => {
-        setLoading(true); // Show loading spinner
-        setTimeout(() => { // Simulate loading
+        setLoading(true);
+        setTimeout(() => {
             setLoading(false);
             setShowLearnMore(true);
             setShowSignup(false);
@@ -26,7 +29,15 @@ function Greeting() {
     };
 
     const handleSignup = () => {
-        setShowSignup(false); // Hide signup
+        setShowSignup(false);
+    };
+
+    const handleQuestionChange = (e) => {
+        setQuestionText(e.target.value);
+    };
+
+    const handleSubmitQuestion = () => {
+        navigate('/AskQuestion', { state: { questionText } });
     };
 
     return (
@@ -41,8 +52,6 @@ function Greeting() {
             {/* Main Content */}
             <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40 transition"
                  aria-live="polite">
-                {/* Existing content above */}
-
                 <div className="relative isolate overflow-hidden bg-blue-500">
                     <div className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#216918] to-[#30303102] opacity-20"
                          style={{clipPath: 'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)'}}></div>
@@ -67,7 +76,7 @@ function Greeting() {
                         <span className="text-highlight">within one single hour. Or money back guaranteed.</span>
                     </h1>
 
-                    {/* Button section moved here */}
+                    {/* Button section */}
                     <div className="mt-10 flex items-center gap-x-6">
                         <button onClick={handleLearnMoreClick}
                                 className="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-red-600">Learn
@@ -111,14 +120,17 @@ function Greeting() {
                             <h2 className="text-3xl font-bold text-gray-800">Ask any question, response by the
                                 hour!</h2>
                             <textarea
-                                className="mt-4 block w-full max-w-xl h-64 px-4 py-4 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"></textarea>
+                                className="mt-4 block w-full max-w-xl h-64 px-4 py-4 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                value={questionText}
+                                onChange={handleQuestionChange}
+                            ></textarea>
                             <div className="mt-4 flex justify-end">
-                                <Link
-                                    to="/AskQuestion"
+                                <button
+                                    onClick={handleSubmitQuestion}
                                     className="px-6 py-3 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                 >
                                     Submit
-                                </Link>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -152,58 +164,6 @@ function Greeting() {
                     </div>
                 </div>
             )}
-        </div>
-    );
-}
-
-function Signup({onSignup}) {
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent default form submission
-        onSignup(); // Hide signup form
-    };
-
-    return (
-        <div
-            className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50 bg-blue-500 transition-opacity duration-700 ease-in-out">
-            <div className="bg-white rounded-lg p-8 shadow-xl w-full max-w-lg animate-fade-in">
-                <h2 className="text-3xl font-bold text-gray-800 mb-1">Sign Up</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="mt-6">
-                        <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
-                        <input
-                            type="text"
-                            id="username"
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required
-                        />
-                    </div>
-                    <div className="mt-6">
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required
-                        />
-                    </div>
-                    <div className="mt-6">
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required
-                        />
-                    </div>
-                    <div className="mt-8">
-                        <button
-                            type="submit"
-                            className="w-full px-4 py-2 bg-teal-600 text-white rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Sign
-                            Up
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     );
 }

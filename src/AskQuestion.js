@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function AskQuestion() {
     const [question, setQuestion] = useState('');
@@ -7,6 +7,14 @@ function AskQuestion() {
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        // Retrieve the question text from the state passed from the Greeting component
+        if (location.state && location.state.questionText) {
+            setQuestion(location.state.questionText);
+        }
+    }, [location.state]);
 
     const handleQuestionChange = (e) => {
         setQuestion(e.target.value);
